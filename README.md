@@ -29,7 +29,7 @@ CONST:
 
 Button - "click here to generate a password"
 
-Prompts (JS) - prompt for each separate critera for the pw
+Prompts (JS) - prompt for each separate criteria for the pw
 	-length: b/w 8 and 128 chars
 	-character types: lowercase, uppercase, numeric, and/or special characters
 		-input validated by JS

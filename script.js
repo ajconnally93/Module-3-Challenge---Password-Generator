@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Creating arrays so the pw generator will have characters to choose when generating the password
+// Created arrays so the pw generator will have characters to choose when generating the password
 var lowerAlphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperAlphabet = lowerAlphabet.map(element => {
   return element.toUpperCase();
@@ -19,8 +19,11 @@ function generatePassword() {
   var pwLengthString = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
   var pwLength = parseInt(pwLengthString);
 
+
+  /////////////////////////////////////
   if (lowerAlphabetConfirm) {
     var pwCharacters = lowerAlphabet
+  ////////////////////////////////////  
   } if (upperAlphabetConfirm) {
     var pwCharacters = pwCharacters.push(upperAlphabet);
   } if (numericsConfirm) {
@@ -28,20 +31,27 @@ function generatePassword() {
   } if (specialsConfirm) {
     var pwCharacters = pwCharacters.push(specials);
 }
+// pwCharacters array should now include all types of characters user wants to include
 
-  var randomIndex = Math.floor(Math.random() * pwCharacters.length);
+////////////////////////////////////////////////////////
+// This will actually go about selecting the random strings from the pwCharacters array
+  var randomIndex = pwCharacters[Math.floor(Math.random() * pwCharacters.length)];
   for (i = 0; i < pwLength; i++) {
-    var randomElement = textArray[randomIndex];
-  }
-}
+    var randomElement = randomIndex[i];
+    // var finalPw.push[randomIndex] ???
 
-// Now the pwCharacters array will include all character types that the user wants to include
+    // add randomElement to final pw string
+  }
+///////////////////////////////////////////////////////
+}
 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   // use JS to add to the empty html screen like shown in example in class yesterday
+  ////////////////////////////////////////////////////////
   document.getElementById("password").innerHTML = passwordText
+  ///////////////////////////////////////////////////////
   passwordText.value = password;
 
 }
