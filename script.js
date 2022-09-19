@@ -7,32 +7,41 @@ var upperAlphabet = lowerAlphabet.map(element => {
   return element.toUpperCase();
 })
 var numerics = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var specials = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~', ''
-// console.log(upperAlphabet);
-console.log(lowerAlphabet);
-alert(lowerAlphabet);
-alert(upperAlphabet);
-// if user answers yes to prompt, concatenate arrays together
+var specials = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
 
 // Write password to the #password input
 function generatePassword() {
-  var upperCase = confirm("Would you like to include uppercase characters in your password?");
-    // if yes, concatenate array into a new array - I KNOW THERE IS A WAY I WAS TAUGHT IN OLD JS -perhaps loop through?
-  var numerics = confirm("Would you like to include numbers in your password?");
-  var specials = confirm("Would you like to include special characters in your password?");
+  // if user answers OK to prompt, concatenate arrays into new array which includes all possible characters for pw generator to choose from
+  var lowerAlphabetConfirm = confirm("Would you like to generate a password?")
+  var upperAlphabetConfirm = confirm("Would you like to include uppercase characters in your password?");
+  var numericsConfirm = confirm("Would you like to include numbers in your password?");
+  var specialsConfirm = confirm("Would you like to include special characters in your password?");
+  var pwLengthString = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
+  var pwLength = parseInt(pwLengthString);
+
+  if (lowerAlphabetConfirm) {
+    var pwCharacters = lowerAlphabet
+  } if (upperAlphabetConfirm) {
+    var pwCharacters = pwCharacters.push(upperAlphabet);
+  } if (numericsConfirm) {
+    var pwCharacters = pwCharacters.push(numerics);
+  } if (specialsConfirm) {
+    var pwCharacters = pwCharacters.push(specials);
 }
 
-// if upperCase == true {  
-// var new_array = [ex1, ex2, ex3]
+  var randomIndex = Math.floor(Math.random() * pwCharacters.length);
+  for (i = 0; i < pwLength; i++) {
+    var randomElement = textArray[randomIndex];
+  }
+}
 
-// figure out how to make the answer to a prompt being yes will make it a boolean===true
-
+// Now the pwCharacters array will include all character types that the user wants to include
 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   // use JS to add to the empty html screen like shown in example in class yesterday
-
+  document.getElementById("password").innerHTML = passwordText
   passwordText.value = password;
 
 }
