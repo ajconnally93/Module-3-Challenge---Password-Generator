@@ -34,14 +34,16 @@ function generatePassword() {
 // pwCharacters array should now include all types of characters user wants to include
 
 ////////////////////////////////////////////////////////
-// This will actually go about selecting the random strings from the pwCharacters array
-  var randomIndex = pwCharacters[Math.floor(Math.random() * pwCharacters.length)];
-  for (i = 0; i < pwLength; i++) {
-    var randomElement = randomIndex[i];
-    // var finalPw.push[randomIndex] ???
-
-    // add randomElement to final pw string
-  }
+// This will select the random strings from the pwCharacters array, and put it into a new array called arrayResult
+  function getArrayResult() {
+    // pwCharacters array already exists - will include all possible characters the user wants to include in pw
+    let arrayResult = [];
+    for (i = 0; i < pwLength; i++) {
+      arrayResult.push(pwCharacters[Math.floor(Math.random() * pwCharacters.length)]);
+    };
+  return arrayResult
+  };
+  getArrayResult()
 ///////////////////////////////////////////////////////
 }
 
@@ -53,6 +55,10 @@ function writePassword() {
   document.getElementById("password").innerHTML = passwordText
   ///////////////////////////////////////////////////////
   passwordText.value = password;
+
+
+  // Test code pieces here???
+  console.log(arrayResult);
 
 }
 
