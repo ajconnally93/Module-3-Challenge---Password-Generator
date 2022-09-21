@@ -9,6 +9,8 @@ var upperAlphabet = lowerAlphabet.map(element => {
 var numerics = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var specials = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
 
+var pwCharacters = [];
+
 // Write password to the #password input
 function generatePassword() {
   // if user answers OK to prompt, concatenate arrays into new array which includes all possible characters for pw generator to choose from
@@ -16,31 +18,47 @@ function generatePassword() {
   var upperAlphabetConfirm = confirm("Would you like to include uppercase characters in your password?");
   var numericsConfirm = confirm("Would you like to include numbers in your password?");
   var specialsConfirm = confirm("Would you like to include special characters in your password?");
-  var pwLengthString = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
-  var pwLength = parseInt(pwLengthString);
+  var pwLength = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
+  console.log("TEST TEST TEST");
+  // var pwLength = parseInt(pwLengthString);
 
 
   /////////////////////////////////////
   if (lowerAlphabetConfirm) {
-    var pwCharacters = lowerAlphabet
-  ////////////////////////////////////  
-  } if (upperAlphabetConfirm) {
-    var pwCharacters = pwCharacters.push(upperAlphabet);
-  } if (numericsConfirm) {
-    var pwCharacters = pwCharacters.push(numerics);
-  } if (specialsConfirm) {
-    var pwCharacters = pwCharacters.push(specials);
+    pwCharacters.push(lowerAlphabet);
+  ////////////////////////////////////
+
+  } 
+  if (upperAlphabetConfirm) {
+    // set up a For Loop through each array I want to add
+    pwCharacters.push(...upperAlphabet);
+
+  } 
+  if (numericsConfirm) {
+    pwCharacters.push(...numerics);
+
+  } 
+  if (specialsConfirm) {
+    pwCharacters.push(...specials);
 }
 // pwCharacters array should now include all types of characters user wants to include
+// include condition in case if they all say NO
 
 ////////////////////////////////////////////////////////
 // This will select the random strings from the pwCharacters array, and put it into a new array called arrayResult
-  function getArrayResult() {
+console.log(pwLength);  
+
+function getArrayResult() {
     // pwCharacters array already exists - will include all possible characters the user wants to include in pw
     let arrayResult = [];
+    console.log(pwLength);
     for (i = 0; i < pwLength; i++) {
       arrayResult.push(pwCharacters[Math.floor(Math.random() * pwCharacters.length)]);
     };
+  // At this point, arrayResult should be my generated password (but in an array) 
+  console.log(arrayResult);
+  console.log(pwLength);
+  console.log(pwCharacters);
   return arrayResult
   };
   getArrayResult()
