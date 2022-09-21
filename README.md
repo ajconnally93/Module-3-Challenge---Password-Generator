@@ -1,36 +1,8 @@
 # Module-3-Challenge---Password-Generator
 Password Generator project for Module 3
 
-The purpose of this project is to generate a Password - 
+The purpose of this project is to generate a random Password based on criteria inputted by the user. Do they want to include upper case characters, numbers, and special characters as possible characters, and how long do they want the password to be?
 
-GIVEN I need a new, secure password
+![Screenshot of Password Generator](https://imgur.com/sTYKpWm)
 
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-
-Button - "click here to generate a password"
-
-Prompts (JS) - prompt for each separate criteria for the pw
-	-length: b/w 8 and 128 chars
-	-character types: lowercase, uppercase, numeric, and/or special characters
-		-input validated by JS
-
-Alert (JS) - Displays your generated password
+Working URL (GitHub Pages): https://ajconnally93.github.io/Module-3-Challenge---Password-Generator/
