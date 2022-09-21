@@ -19,65 +19,60 @@ function generatePassword() {
   var numericsConfirm = confirm("Would you like to include numbers in your password?");
   var specialsConfirm = confirm("Would you like to include special characters in your password?");
   var pwLength = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
-  console.log("TEST TEST TEST");
-  // var pwLength = parseInt(pwLengthString);
 
-
-  /////////////////////////////////////
+ // Sets up a loop through each array element and pushes each element individually into pwCharacters
   if (lowerAlphabetConfirm) {
-    pwCharacters.push(lowerAlphabet);
-  ////////////////////////////////////
-
+    for (var i = 0; i < lowerAlphabet.length; i++) {
+      pwCharacters.push(lowerAlphabet[i]);
+    }
   } 
+
   if (upperAlphabetConfirm) {
-    // set up a For Loop through each array I want to add
-    pwCharacters.push(...upperAlphabet);
-
+    for (var i = 0; i < upperAlphabet.length; i++) {
+      pwCharacters.push(upperAlphabet[i]);
+    }
   } 
+
   if (numericsConfirm) {
-    pwCharacters.push(...numerics);
-
+    for (var i = 0; i < numerics.length; i++) {
+      pwCharacters.push(numerics[i]);
+    }
   } 
+
   if (specialsConfirm) {
-    pwCharacters.push(...specials);
-}
+    for (var i = 0; i < specials.length; i++) {
+      pwCharacters.push(specials[i]);
+    }
+  }
 // pwCharacters array should now include all types of characters user wants to include
-// include condition in case if they all say NO
 
-////////////////////////////////////////////////////////
-// This will select the random strings from the pwCharacters array, and put it into a new array called arrayResult
-console.log(pwLength);  
+  else {
+    alert("You can't say no to everything! Reload the page and try again.");
+  }
 
+
+// This will select the random strings from the pwCharacters array, and put it into a new array called arrayResult 
 function getArrayResult() {
     // pwCharacters array already exists - will include all possible characters the user wants to include in pw
     let arrayResult = [];
-    console.log(pwLength);
     for (i = 0; i < pwLength; i++) {
       arrayResult.push(pwCharacters[Math.floor(Math.random() * pwCharacters.length)]);
     };
-  // At this point, arrayResult should be my generated password (but in an array) 
-  console.log(arrayResult);
-  console.log(pwLength);
-  console.log(pwCharacters);
-  return arrayResult
+  // finalPassword will join all elements of arrayResult (the generated password) into a singular string, which will act as the final password
+  var finalPassword = arrayResult.join('');
+  return finalPassword;
   };
   getArrayResult()
-///////////////////////////////////////////////////////
 }
 
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  // use JS to add to the empty html screen like shown in example in class yesterday
+  // use JS to add to the empty html screen like shown in example in class yesterday // **STILL TO DO**
   ////////////////////////////////////////////////////////
   document.getElementById("password").innerHTML = passwordText
   ///////////////////////////////////////////////////////
   passwordText.value = password;
-
-
-  // Test code pieces here???
-  console.log(arrayResult);
-
 }
 
 // Add event listener to generate button
