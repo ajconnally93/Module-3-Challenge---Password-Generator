@@ -1,7 +1,7 @@
 # Module-3-Challenge---Password-Generator
 Password Generator project for Module 3
 
-PLACEHOLDER
+The purpose of this project is to generate a Password - 
 
 GIVEN I need a new, secure password
 

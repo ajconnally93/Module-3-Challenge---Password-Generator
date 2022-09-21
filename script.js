@@ -15,9 +15,9 @@ var pwCharacters = [];
 function generatePassword() {
   // if user answers OK to prompt, concatenate arrays into new array which includes all possible characters for pw generator to choose from
   var lowerAlphabetConfirm = confirm("Would you like to generate a password?")
-  var upperAlphabetConfirm = confirm("Would you like to include uppercase characters in your password?");
-  var numericsConfirm = confirm("Would you like to include numbers in your password?");
-  var specialsConfirm = confirm("Would you like to include special characters in your password?");
+  var upperAlphabetConfirm = confirm("Would you like to include uppercase characters as possible characters in your password?");
+  var numericsConfirm = confirm("Would you like to include numbers as possible characters in your password?");
+  var specialsConfirm = confirm("Would you like to include special characters as possible characters in your password?");
   var pwLength = prompt("How many characters do you want your password to be? Min: 8, Max: 128");
 
  // Sets up a loop through each array element and pushes each element individually into pwCharacters
@@ -44,7 +44,7 @@ function generatePassword() {
       pwCharacters.push(specials[i]);
     }
   }
-// pwCharacters array should now include all types of characters user wants to include
+// pwCharacters array should now include all types of characters user wants to include as possible characters in the pw
 
   else {
     alert("You can't say no to everything! Reload the page and try again.");
@@ -60,18 +60,16 @@ function getArrayResult() {
     };
   // finalPassword will join all elements of arrayResult (the generated password) into a singular string, which will act as the final password
   var finalPassword = arrayResult.join('');
+  console.log(finalPassword);
   return finalPassword;
   };
-  getArrayResult()
+  return getArrayResult()
 }
 
+// the variable password will = the end result of the generatePassword() function, which will = the result of the getArrayResult() function, which will equal the finalPassword string, which is confirmed to be the correct string for the generated password
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  // use JS to add to the empty html screen like shown in example in class yesterday // **STILL TO DO**
-  ////////////////////////////////////////////////////////
-  document.getElementById("password").innerHTML = passwordText
-  ///////////////////////////////////////////////////////
   passwordText.value = password;
 }
 
