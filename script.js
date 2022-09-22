@@ -46,8 +46,13 @@ function generatePassword() {
   }
 // pwCharacters array should now include all types of characters user wants to include as possible characters in the pw
 
-  else {
+  if (!lowerAlphabetConfirm && !upperAlphabet && !numericsConfirm && !specialsConfirm) {
     alert("You can't say no to everything! Reload the page and try again.");
+  }
+
+  if (pwLength < 8 || pwLength > 128) {
+    alert("Invalid character amount. Please reload the page, and next time enter a number from 8 to 128.");
+    return;
   }
 
 
@@ -62,7 +67,7 @@ function getArrayResult() {
   var finalPassword = arrayResult.join('');
   return finalPassword;
   };
-  return getArrayResult()
+  return getArrayResult();
 }
 
 // the variable password will = the end result of the generatePassword() function, which will = the result of the getArrayResult() function, which will equal the finalPassword string, which is confirmed to be the correct string for the generated password
