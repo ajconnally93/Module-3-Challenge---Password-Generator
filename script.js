@@ -60,7 +60,6 @@ function getArrayResult() {
     };
   // finalPassword will join all elements of arrayResult (the generated password) into a singular string, which will act as the final password
   var finalPassword = arrayResult.join('');
-  console.log(finalPassword);
   return finalPassword;
   };
   return getArrayResult()
